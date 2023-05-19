@@ -47,7 +47,7 @@ function NavBar() {
           </li>
    
           <li>
-              <a>Home</a>
+              <Link to="/">Home</Link>
             </li>
             <li>
               <a>Blog</a>
@@ -63,7 +63,7 @@ function NavBar() {
       </div>
       <div className="navbar-end">
         <Link to="/login" className="btn ">Login</Link>
-        <Link to="/Register" className="btn ml-3">Register</Link>
+        <Link to="/registar" className="btn ml-3">Register</Link>
       </div>
     </div>
   );

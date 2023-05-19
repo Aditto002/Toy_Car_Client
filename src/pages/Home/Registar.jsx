@@ -1,8 +1,8 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { FaGoogle } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
-function Login() {
+function Registar() {
   return (
     <div className="hero min-h-screen bg-base-200">
     <div className="hero-content flex-col lg:flex-row">
@@ -14,6 +14,17 @@ function Login() {
         <div className="card-body">
         <form >
         <h1 className="text-3xl font-bold text-center">Login now!</h1>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Name</span>
+            </label>
+            <input
+              name='name'
+              type="text"
+              placeholder="name"
+              className="input input-bordered"
+            />
+          </div>
           <div className="form-control">
             <label className="label">
               <span className="label-text">Email</span>
@@ -41,18 +52,28 @@ function Login() {
               </a>
             </label>
           </div>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Photo URL</span>
+            </label>
+            <input
+              name='photo'
+              type="text"
+              placeholder="url"
+              className="input input-bordered"
+            />
+          </div>
           <div className="form-control mt-6">
             <button className="btn btn-primary">Login</button>
             <button className="btn btn-warning btn-outline mt-4"><FaGoogle /></button>
           </div>
         </form>
-        <p className="text-center my-4">New to Car-Doctor ? <Link to='/registar' className="text-orange-600 font-bold">Sing Up</Link></p>
+        <p className="text-center my-4">Have any account ? <Link to='/login' className="text-orange-600 font-bold">Sing In</Link></p>
         </div>
       </div>
     </div>
   </div>
-
   )
 }
 
-export default Login
+export default Registar
