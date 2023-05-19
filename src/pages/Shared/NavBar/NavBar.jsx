@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../providers/AuthProbider";
+// import Button from 'react-bootstrap/Button';
 
 function NavBar() {
+    const {user,logOut} = useContext(AuthContext);
+    const handelLogOut =()=>{
+        logOut()
+        .then()
+        .catch(error=>console.log(error))
+      }
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -62,8 +70,10 @@ function NavBar() {
         </ul>
       </div>
       <div className="navbar-end">
-        <Link to="/login" className="btn ">Login</Link>
-        <Link to="/registar" className="btn ml-3">Register</Link>
+      {user && <Link href=""><img className='rounded-full mr-3'style={{height:'40px'}} src={user.photoURL} alt="" /></Link>}
+        {/* <Link to="/login" className="btn ">Login</Link>
+        <Link to="/registar" className="btn ml-3">Register</Link> */}
+        {user ? <Link to="/login" className="btn "onClick={handelLogOut}>logOut</Link>:<div> <Link to="/login" className="btn ">Login</Link><Link to="/registar" className="btn ml-3">Register</Link></div>}
       </div>
     </div>
   );

@@ -1,8 +1,36 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import { FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../providers/AuthProbider';
 
 function Registar() {
+    const {createUser} =useContext(AuthContext)
+    const [error , setError] = useState('')
+    // useTitle('Regiter');
+    const handeRegister = event =>{
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const photo =form.photo.value;
+        const password = form.password.value;
+        console.log(name,email,photo,password);
+        
+        setError('')
+        if(password.length<6){
+            setError('password must be 6 characters')
+            return
+          }
+        createUser(email,password)
+        .then(result =>{
+            const createUser = result.user;
+            form.reset();
+            console.log(createUser);
+        })
+        .catch(error=>{
+            console.log(error)
+        })
+    }
   return (
     <div className="hero min-h-screen bg-base-200">
     <div className="hero-content flex-col lg:flex-row">
@@ -12,7 +40,7 @@ function Registar() {
       </div>
       <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
         <div className="card-body">
-        <form >
+        <form onSubmit={handeRegister}>
         <h1 className="text-3xl font-bold text-center">Login now!</h1>
           <div className="form-control">
             <label className="label">
@@ -64,8 +92,7 @@ function Registar() {
             />
           </div>
           <div className="form-control mt-6">
-            <button className="btn btn-primary">Login</button>
-            <button className="btn btn-warning btn-outline mt-4"><FaGoogle /></button>
+            <button className="btn btn-primary">Regiter</button>
           </div>
         </form>
         <p className="text-center my-4">Have any account ? <Link to='/login' className="text-orange-600 font-bold">Sing In</Link></p>

@@ -1,8 +1,51 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { FaGoogle } from 'react-icons/fa';
+import { AuthContext } from '../../providers/AuthProbider';
 
 function Login() {
+    const {singIn,googleLogIn} = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+
+     console.log(location);
+     const from = location.state?.from?.pathname || '/';
+     console.log ('here',from)
+
+     const handleGoogle =()=>{
+        googleLogIn()
+        .then((result) => {
+             const user = result.user;
+             console.log(user);
+             navigate(from);
+    
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    
+      }
+      const handleSubmit =event=>{
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email
+        ,password);
+  singIn(email,password)
+  .then(result =>{
+    const loggedUser = result.user;
+    console.log(loggedUser);
+    form.reset();
+    navigate(from);
+  })
+  .catch(error =>{
+    console.log(error);
+  })
+      }
+
+
+
   return (
     <div className="hero min-h-screen bg-base-200">
     <div className="hero-content flex-col lg:flex-row">
@@ -12,7 +55,7 @@ function Login() {
       </div>
       <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
         <div className="card-body">
-        <form >
+        <form onSubmit={handleSubmit}>
         <h1 className="text-3xl font-bold text-center">Login now!</h1>
           <div className="form-control">
             <label className="label">
@@ -43,7 +86,7 @@ function Login() {
           </div>
           <div className="form-control mt-6">
             <button className="btn btn-primary">Login</button>
-            <button className="btn btn-warning btn-outline mt-4"><FaGoogle /></button>
+            <button onClick={handleGoogle} className="btn btn-warning btn-outline mt-4"><FaGoogle /></button>
           </div>
         </form>
         <p className="text-center my-4">New to Car-Doctor ? <Link to='/registar' className="text-orange-600 font-bold">Sing Up</Link></p>
