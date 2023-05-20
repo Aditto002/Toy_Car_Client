@@ -8,7 +8,7 @@ function UpdateToy() {
 
   return (
     <div className="mb-5">
-    <h3 className="text-center text-3xl font-bold">ChackOut: </h3>
+    <h3 className="text-center text-3xl font-bold">Update Toy</h3>
     <form >
            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-20">
            <div className="card-body space-y-7">

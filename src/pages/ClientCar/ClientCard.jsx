@@ -3,6 +3,21 @@ import { Link } from 'react-router-dom';
 
 function ClientCard({toy,handleDelete}) {
     const {_id,customerName,email,price,photo,category,quantity} = toy;
+    
+
+    const handleUpdate =id =>{
+        const proceed = confirm('Are you sure you want to Update');
+        if(proceed){
+            fetch(`http://localhost:5000/addtoy/${id}`,{
+                method:'PUT'
+            })
+            .then(res => res.json())
+            .then(data => {
+            console.log(data)
+           
+        })
+        }
+    }
 
     
   return (
@@ -32,7 +47,9 @@ function ClientCard({toy,handleDelete}) {
     <td>{quantity}</td>
     <th>
     {/* to={`/update/${_id}}`} */}
-        <Link to={`/update/${_id}}`}><button className="btn btn-ghost btn-xs">Update</button></Link>
+        {/* <Link to={`/update/${_id}}`}><button className="btn btn-ghost btn-xs">Update</button></Link> */}
+        <button onClick={()=> handleUpdate(_id)} className="btn btn-ghost btn-xs">Update</button>
+        
       
     </th>
 
