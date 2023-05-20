@@ -15,6 +15,8 @@ function Registar() {
         const photo =form.photo.value;
         const password = form.password.value;
         console.log(name,email,photo,password);
+
+        // localStorage.setItem('photo', JSON.stringify(photo))
         
         setError('')
         if(password.length<6){

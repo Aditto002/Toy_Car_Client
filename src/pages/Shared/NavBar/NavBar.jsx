@@ -1,9 +1,12 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProbider";
 // import Button from 'react-bootstrap/Button';
 
 function NavBar() {
+//     const [photos,setPhotos]=useState({});
+//    const result=localStorage.getItem(JSON.parse('photo'))
+//    setPhotos(result);
     const {user,logOut} = useContext(AuthContext);
     const handelLogOut =()=>{
         logOut()
@@ -51,10 +54,6 @@ function NavBar() {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <a>Item 1</a>
-          </li>
-   
-          <li>
               <Link to="/">Home</Link>
             </li>
             <li>
@@ -64,6 +63,8 @@ function NavBar() {
             <li>
               <a>About</a>
             </li>
+
+            {user && <><li><Link to='/addtoy'>Add Toy</Link></li><li><Link to='/mytoy'>My Toy</Link></li></>}
           <li>
             <a>Item 3</a>
           </li>
@@ -71,8 +72,10 @@ function NavBar() {
       </div>
       <div className="navbar-end">
       {user && <Link href=""><img className='rounded-full mr-3'style={{height:'40px'}} src={user.photoURL} alt="" /></Link>}
-        {/* <Link to="/login" className="btn ">Login</Link>
-        <Link to="/registar" className="btn ml-3">Register</Link> */}
+      {/* {photos && <Link href=""><img className='rounded-full mr-3'style={{height:'40px'}} src={photos} alt="" /></Link>} */}
+       
+
+
         {user ? <Link to="/login" className="btn "onClick={handelLogOut}>logOut</Link>:<div> <Link to="/login" className="btn ">Login</Link><Link to="/registar" className="btn ml-3">Register</Link></div>}
       </div>
     </div>
