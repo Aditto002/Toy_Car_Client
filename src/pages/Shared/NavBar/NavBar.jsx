@@ -57,16 +57,12 @@ function NavBar() {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <a>Blog</a>
-            </li>
-            
-            <li>
-              <a>About</a>
+              <Link to='/blog'>Blog</Link>
             </li>
 
             {user && <><li><Link to='/addtoy'>Add Toy</Link></li><li><Link to='/mytoy'>My Toy</Link></li></>}
           <li>
-            <a>Item 3</a>
+            <Link to='/alltoy'>All toy</Link>
           </li>
         </ul>
       </div>

@@ -19,6 +19,7 @@ function AuthProbider({children}) {
     }
     
    const googleLogIn =()=>{
+    // setLoading(true);
      return signInWithPopup(auth, provider);
    }
 
@@ -27,6 +28,7 @@ function AuthProbider({children}) {
       return signInWithEmailAndPassword(auth,email,password);
     }
     const logOut = ()=>{
+        setLoading(true);
       return signOut(auth)
     }
 

@@ -7,6 +7,9 @@ import ErrorPage from "../pages/Home/ErrorPage";
 import AddToy from "../AddToy/AddToy";
 import ClientCar from "../pages/ClientCar/ClientCar";
 import PriveteRoute from "../privetRoute/PrivetRoute";
+import UpdateToy from "../UpdateToy/UpdateToy";
+import AllToy from "../AllToy/AllToy";
+import Blog from "../pages/Home/Blog";
 
 const router = createBrowserRouter([
     {
@@ -31,6 +34,19 @@ const router = createBrowserRouter([
       {
         path:'/mytoy',
         element:<PriveteRoute><ClientCar></ClientCar></PriveteRoute>
+      },
+      {
+        path:'/update/:id',
+        element:<UpdateToy></UpdateToy>,
+        loader:({params}) => fetch(`http://localhost:5000/addtoy/${params.id}`)
+      },
+      {
+        path:'/alltoy',
+        element:<AllToy></AllToy>
+      },
+      {
+        path:'/blog',
+        element:<Blog></Blog>
       }
     
     ]
