@@ -43,7 +43,7 @@ function TabFilter() {
                 <div className="card-body">
                   <h2 className="card-title">Name : {category.customerName} </h2>
                   <p>Price : {category.price}</p>
-                  <p>Price : {category.rating}</p>
+                  <p>Rating : {category.rating}</p>
                   <div className="card-actions justify-end">
                     {user?<Link to={`/details/${category._id}`}>  <button className="btn btn-primary">View more</button></Link>:<Link to="/login">  <button className="btn btn-primary">View more</button></Link> }
                  {/* <button className="btn btn-primary">View more</button>  */}
