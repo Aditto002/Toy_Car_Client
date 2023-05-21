@@ -41,6 +41,10 @@ function AddToy() {
           .then(res => res.json())
           .then(data =>{
             console.log(data);
+            if(data.acknowledged){
+              alert('update successfuly')
+              form.reset();
+            }
             // Swal.fire({
             //     title: 'Do you want to save the changes?',
             //     showDenyButton: true,

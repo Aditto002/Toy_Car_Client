@@ -2,10 +2,12 @@ import React, { useContext, useState } from 'react'
 import { FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProbider';
+import useTitle from '../../hook/useTitle';
 
 function Registar() {
     const {createUser} =useContext(AuthContext)
     const [error , setError] = useState('')
+    useTitle('Register');
     // useTitle('Regiter');
     const handeRegister = event =>{
         event.preventDefault();

@@ -1,12 +1,14 @@
 import React, { useContext } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProbider";
+import useTitle from "../hook/useTitle";
 
 function UpdateToy() {
   const updatedata = useLoaderData();
   console.log(updatedata);
   let { id } = useParams();
   const {user} = useContext(AuthContext)
+  useTitle('update')
 
   const handleUpdate = event=>{
     event.preventDefault();
@@ -44,6 +46,10 @@ function UpdateToy() {
     .then(res => res.json())
     .then(data =>{
       console.log(data);
+      if(data.acknowledged){
+        alert('update successfuly')
+        form.reset();
+      }
       // Swal.fire({
       //     title: 'Do you want to save the changes?',
       //     showDenyButton: true,
@@ -67,7 +73,7 @@ function UpdateToy() {
 
   return (
     <div className="mb-5">
-      <h3 className="text-center text-3xl font-bold">Update Toy</h3>
+      <h3 className="text-center text-3xl font-bold">Update Toy : {updatedata.name}</h3>
       <form onSubmit={handleUpdate}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-20">
           <div className="card-body space-y-7">
@@ -75,6 +81,7 @@ function UpdateToy() {
               <input
                 type="text"
                 name="photo"
+                defaultValue={updatedata?.photo}
                 placeholder="photo URL"
                 className="input input-bordered"
               />
@@ -102,7 +109,7 @@ function UpdateToy() {
               <input
                 type="email"
                 name="email"
-                //   defaultValue={user?.email}
+                  defaultValue={user?.email}
                 className="input input-bordered"
               />
             </div>

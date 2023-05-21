@@ -1,9 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../../providers/AuthProbider'
 import ClientCard from './ClientCard';
+import useTitle from '../../hook/useTitle';
 
 function ClientCar() {
     const {user} = useContext(AuthContext);
+    useTitle('MyCar');
     const [toys , setToys] = useState([])
     const url = `http://localhost:5000/addtoy?email=${user?.email}`;
     useEffect( () => {
