@@ -6,7 +6,7 @@ function Footer() {
     <div className="footer">
   <div>
     <img src="https://images.pexels.com/photos/132539/pexels-photo-132539.jpeg?auto=compress&cs=tinysrgb&w=600" className='h-[50px] w-[50px] rounded-full' alt="" />
-    <p>Toy car<br/>Providing reliable tech since 1992</p>
+    <p>Toy car<br/>Find your best toy</p>
   </div> 
   <div>
     <span className="footer-title">Contact </span> 
@@ -18,11 +18,10 @@ function Footer() {
     <a className="link link-hover"> 123 Street, City, Country</a>
   </div> 
   <div>
-    <span className="footer-title">address</span> 
+    <span className="footer-title">Pages</span> 
     <a className="link link-hover">About us</a> 
     <a className="link link-hover">Contact</a> 
-    <a className="link link-hover">Jobs</a> 
-    <a className="link link-hover">Press kit</a>
+    <a className="link link-hover">Toy</a> 
   </div> 
   <div>
     <span className="footer-title">Social</span> 
@@ -35,7 +34,7 @@ function Footer() {
   </div>
   </div>
   <div className="text-center pt-10">
-    <p>Copyright © 2023 - All right reserved by ACME Industries Ltd</p>
+    <p>Copyright © 2023 - All right .</p>
   </div>
 </footer>
   )

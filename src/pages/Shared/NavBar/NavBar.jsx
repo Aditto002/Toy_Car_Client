@@ -37,16 +37,17 @@ function NavBar() {
             tabIndex={0}
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
-            <li>
-              <a>Home</a>
+             <li>
+              <Link to="/">Home</Link>
             </li>
             <li>
-              <a>Blog</a>
+              <Link to='/blog'>Blog</Link>
             </li>
-            
-            <li>
-              <a>About</a>
-            </li>
+
+            {user && <><li><Link to='/addtoy'>Add Toy</Link></li><li><Link to='/mytoy'>My Toy</Link></li></>}
+          <li>
+            <Link to='/alltoy'>All toy</Link>
+          </li>
           </ul>
         </div>
         <a className="btn btn-ghost normal-case text-xl">Toy-Car</a>

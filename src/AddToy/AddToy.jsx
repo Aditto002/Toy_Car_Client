@@ -69,6 +69,7 @@ function AddToy() {
                   <input
                     type="text"
                     name="name"
+                    defaultValue={user?.displayName}
                     placeholder='Name'
                     className="input input-bordered"
                   />
@@ -81,7 +82,7 @@ function AddToy() {
                   <input
                     type="text"
                     name='seller_name'
-                    defaultValue={user?.displayname}
+                   
                     placeholder="Seller_name"
                     className="input input-bordered"
                   />
