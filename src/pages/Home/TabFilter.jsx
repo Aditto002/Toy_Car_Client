@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProbider";
 
 function TabFilter() {
-
+    const {user} = useContext(AuthContext);
 
   const [categorys, setCategorys] = useState([]);
   const handleCategory = (category,tabnumbet) => {
@@ -44,8 +45,7 @@ function TabFilter() {
                   <p>Price : {category.price}</p>
                   <p>Price : {category.rating}</p>
                   <div className="card-actions justify-end">
-                <Link to={`/details/${category._id}`}>  <button className="btn btn-primary">View more</button></Link>  
-
+                    {user?<Link to={`/details/${category._id}`}>  <button className="btn btn-primary">View more</button></Link>:<Link to="/login">  <button className="btn btn-primary">View more</button></Link> }
                  {/* <button className="btn btn-primary">View more</button>  */}
                   </div>
                 </div>
