@@ -25,13 +25,31 @@ function AllToy() {
   }, []);
   return (
     <div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+    {/* <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"> */}
+    <div className="overflow-x-auto w-full mb-10">
+  <table className="table w-full">
+    {/* head */}
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Category</th>
+        <th>Quantity</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
 
       
       {toys.slice(0, limit).map(toy=><AllToyCard
       key={toy._id}
       toy={toy}></AllToyCard>)}
-    </div>
+    {/* </div> */}
+    </tbody>
+    
+    
+  </table>
+</div>
     <div className="mt-5 mb-5 flex justify-center">
       <div>
       {!showAll && (
