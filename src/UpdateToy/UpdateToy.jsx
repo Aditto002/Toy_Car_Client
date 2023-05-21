@@ -36,7 +36,7 @@ function UpdateToy() {
     console.log(order)
 
 
-    fetch(`http://localhost:5000/addtoy/${id}`,{
+    fetch(`https://car-toy.vercel.app/addtoy/${id}`,{
       method: 'PUT',
       headers:{
           'content-type': 'application/json'

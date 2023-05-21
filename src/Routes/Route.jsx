@@ -10,6 +10,7 @@ import PriveteRoute from "../privetRoute/PrivetRoute";
 import UpdateToy from "../UpdateToy/UpdateToy";
 import AllToy from "../AllToy/AllToy";
 import Blog from "../pages/Home/Blog";
+import Dateils from "../pages/Home/Dateils";
 
 const router = createBrowserRouter([
     {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
       {
         path:'/blog',
         element:<Blog></Blog>
+      },
+      {
+        path:'/details/:id',
+        element:<Dateils></Dateils>
       }
     
     ]

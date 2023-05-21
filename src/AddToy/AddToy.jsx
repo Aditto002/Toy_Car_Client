@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 import { AuthContext } from '../providers/AuthProbider';
 import { useLoaderData } from 'react-router-dom';
-import Swal from 'sweetalert2'
 
 function AddToy() {
     const {user} = useContext(AuthContext)
@@ -31,7 +30,7 @@ function AddToy() {
           console.log(order)
 
 
-          fetch('http://localhost:5000/addtoy',{
+          fetch('https://car-toy.vercel.app/addtoy',{
             method: 'POST',
             headers:{
                 'content-type': 'application/json'
@@ -45,22 +44,7 @@ function AddToy() {
               alert('update successfuly')
               form.reset();
             }
-            // Swal.fire({
-            //     title: 'Do you want to save the changes?',
-            //     showDenyButton: true,
-            //     showCancelButton: true,
-            //     confirmButtonText: 'Save',
-            //     denyButtonText: `Don't save`,
-            //   }).then((result) => {
-            //     /* Read more about isConfirmed, isDenied below */
-            //     if (result.acknowledged) {
-            //       Swal.fire('Saved!', '', 'success')
-            //     }
-            //     //  else if (result.isDenied) {
-            //     //   Swal.fire('Changes are not saved', '', 'info')
-            //     // }
-            //   })
-              
+           
           })
 
     }

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function TabFilter() {
 
@@ -6,7 +7,7 @@ function TabFilter() {
   const [categorys, setCategorys] = useState([]);
   const handleCategory = (category,tabnumbet) => {
  
-    fetch(`http://localhost:5000/addtoy?category=${category}`)
+    fetch(`https://car-toy.vercel.app/category?category=${category}`)
       .then((res) => res.json())
       .then((data) => setCategorys(data));
     return (
@@ -19,7 +20,7 @@ function TabFilter() {
     <div className="mt-5 mb-7">
         <h2 className="text-center text-3xl mt-4 mb-6">Sub Categorys</h2>
       <div className="tabs tabs-boxed flex justify-center mb-5">
-        <a onClick={() => handleCategory("car")} className="tab">
+        <a onClick={() => handleCategory("car")} className="tab ">
           car
         </a>
         <a onClick={()=>handleCategory('truck')} className="tab ">truck</a>
@@ -43,7 +44,9 @@ function TabFilter() {
                   <p>Price : {category.price}</p>
                   <p>Price : {category.rating}</p>
                   <div className="card-actions justify-end">
-                    <button className="btn btn-primary">View more</button>
+                <Link to={`/details/${category._id}`}>  <button className="btn btn-primary">View more</button></Link>  
+
+                 {/* <button className="btn btn-primary">View more</button>  */}
                   </div>
                 </div>
               </div>

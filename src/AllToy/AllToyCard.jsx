@@ -1,7 +1,8 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function AllToyCard({toy}) {
-    const {customerName,email,price,photo,seller_name,category,rating,quantity} =toy
+    const {_id,customerName,email,price,photo,seller_name,category,rating,quantity} =toy
   return (
     // <div class="flex flex-wrap -mx-4">
 
@@ -15,7 +16,8 @@ function AllToyCard({toy}) {
       <h3 className="card-title">Available Quantity: {quantity}</h3>
       
       <div className="card-actions justify-end">
-        <button className="btn btn-primary">View Details</button>
+        <Link to={`/details/${_id}`}> <button className="btn btn-primary">View Details</button></Link>
+       
       </div>
     </div>
   </div>
