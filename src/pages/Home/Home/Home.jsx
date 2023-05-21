@@ -4,6 +4,7 @@ import Gallery from '../Gallery'
 import About from '../About'
 import TabFilter from '../TabFilter'
 import Dateils from '../Dateils'
+import Collection from '../Collection'
 
 function Home() {
   return (
@@ -12,7 +13,7 @@ function Home() {
     <About></About>
     <Gallery></Gallery>
     <TabFilter></TabFilter>
-    <Dateils></Dateils>
+    <Collection></Collection>
     </div>
   )
 }

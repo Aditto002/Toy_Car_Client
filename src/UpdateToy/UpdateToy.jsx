@@ -50,22 +50,7 @@ function UpdateToy() {
         alert('update successfuly')
         form.reset();
       }
-      // Swal.fire({
-      //     title: 'Do you want to save the changes?',
-      //     showDenyButton: true,
-      //     showCancelButton: true,
-      //     confirmButtonText: 'Save',
-      //     denyButtonText: `Don't save`,
-      //   }).then((result) => {
-      //     /* Read more about isConfirmed, isDenied below */
-      //     if (result.acknowledged) {
-      //       Swal.fire('Saved!', '', 'success')
-      //     }
-      //     //  else if (result.isDenied) {
-      //     //   Swal.fire('Changes are not saved', '', 'info')
-      //     // }
-      //   })
-        
+          
     })
 
 }
@@ -73,7 +58,7 @@ function UpdateToy() {
 
   return (
     <div className="mb-5">
-      <h3 className="text-center text-3xl font-bold">Update Toy : {updatedata.name}</h3>
+      <h3 className="text-center text-3xl font-bold">Update Toy </h3>
       <form onSubmit={handleUpdate}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-20">
           <div className="card-body space-y-7">
@@ -90,6 +75,7 @@ function UpdateToy() {
               <input
                 type="text"
                 name="name"
+                defaultValue={user?.displayName}
                 placeholder="Name"
                 className="input input-bordered"
               />
@@ -100,7 +86,7 @@ function UpdateToy() {
               <input
                 type="text"
                 name="seller_name"
-                //   defaultValue={user?.displayname}
+                defaultValue={updatedata?.customerName}
                 placeholder="Seller_name"
                 className="input input-bordered"
               />
@@ -119,6 +105,7 @@ function UpdateToy() {
               <input
                 type="text"
                 name="category"
+                defaultValue={updatedata?.category}
                 placeholder="category"
                 className="input input-bordered"
               />
@@ -127,6 +114,7 @@ function UpdateToy() {
               <input
                 type="text"
                 name="price"
+                defaultValue={updatedata?.price}
                 placeholder="Price"
                 className="input input-bordered"
               />
@@ -137,7 +125,7 @@ function UpdateToy() {
               <input
                 type="text"
                 name="rating"
-                //   defaultValue={user?.displayname}
+                defaultValue={updatedata?.rating}
                 placeholder="Rating"
                 className="input input-bordered"
               />
@@ -146,6 +134,7 @@ function UpdateToy() {
               <input
                 type="text"
                 name="quantity"
+                defaultValue={updatedata?.quantity}
                 placeholder="quantity"
                 className="input input-bordered"
               />
@@ -156,6 +145,7 @@ function UpdateToy() {
               <input
                 type="text"
                 name="description"
+                defaultValue={updatedata?.dadescriptionte}
                 placeholder="Description"
                 className="input input-bordered"
               />
